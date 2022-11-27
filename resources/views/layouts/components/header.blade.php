@@ -1,15 +1,12 @@
 <header role="banner">
-    <!-- Hotjar Tracking Code for https://wishlist.dinamika.ac.id/ -->
-<!-- Hotjar Tracking Code for https://wishlist.dinamika.ac.id/ -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQ4MRLNY0X"></script>
 <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:3263581,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JQ4MRLNY0X');
 </script>
     <img id="logo-main" src="{{ asset('assets/images/logo_wishlist.png') }}" width="200" alt="Logo Thing main logo">
     <div class="d-none d-lg-block d-xl-block">

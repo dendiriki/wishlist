@@ -32,4 +32,9 @@ class Artikel extends Model
     {
         return $this->hasMany(Artikelheadline::class, 'id_artikel', 'id');
     }
+
+    public function commants()
+    {
+    return $this->hasMany(Commant::class)->whereNull('parent_id');
+    }
 }

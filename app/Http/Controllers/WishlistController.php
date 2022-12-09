@@ -12,6 +12,7 @@ use App\Models\Subkategori;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Commant;
 
 class WishlistController extends Controller
 {
@@ -83,8 +84,30 @@ class WishlistController extends Controller
 
     public function halaman_artikel($id)
     {
-        $artikel = Artikel::find($id);
+        $artikel = Artikel::with(['commants', 'commants.child'])->find($id);
 
         return view('post', compact('artikel'));
+
+        // $artikel = Artikel::with(['commants', 'commants.child'])->where('id', $id)->first();
+        // return view('post', compact('artikel'));
+    }
+
+    public function commant(Request $request)
+    {
+        //VALIDASI DATA YANG DITERIMA
+        $this->validate($request, [
+            'username' => 'required',
+            'commant' => 'required'
+        ]);
+    
+        Commant::create([
+            'artikel_id' => $request->id,
+            //JIKA PARENT ID TIDAK KOSONG, MAKA AKAN DISIMPAN IDNYA, SELAIN ITU NULL
+            'parent_id' => $request->parent_id != '' ? $request->parent_id:NULL,
+            'username' => $request->username,
+            'commant' => $request->commant
+        ]);
+        return redirect()->back()->with(['success' => 'Komentar Ditambahkan']);
     }
 }
+

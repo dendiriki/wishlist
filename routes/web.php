@@ -19,6 +19,7 @@ use Spatie\Permission\Models\Role;
 //route utama
 Route::get('/', [App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist');
 Route::get('/artikel/{id}', [App\Http\Controllers\WishlistController::class, 'halaman_artikel'])->name('artikel-wishlist');
+Route::post('/commant', [App\Http\Controllers\WishlistController::class, 'commant'])->name('commant');
 
 Auth::routes();
 

@@ -16,6 +16,6 @@ class HeadlineSeeder extends Seeder
     {
         Headline::create(['highlight' => 'Headline']);
         Headline::create(['highlight' => 'Umum']);
-        Headline::create(['highlight' => 'Headline Plus']);
+        // Headline::create(['highlight' => 'Headline Plus']);
     }
 }

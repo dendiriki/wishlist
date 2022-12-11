@@ -190,7 +190,7 @@ class ArtikelRedakturController extends Controller
         $artikelheadline->id_artikel = $artikel->id;
         $artikelheadline->id_headline = trim($request->id_headline);
 
-        if($artikelheadline->id_headline =3){
+        if($artikelheadline->id_headline =  trim($request->id_headline)){
 
             $artikel = Artikel::find($id);
 
@@ -290,7 +290,7 @@ class ArtikelRedakturController extends Controller
         $artikelheadline->id_artikel = $artikel->id;
         $artikelheadline->id_headline = $request->id_headline;
 
-        if($artikelheadline->id_headline =3){
+        if($artikelheadline->id_headline = $request->id_headline){
 
             $artikel = Artikel::find($id);
 

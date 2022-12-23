@@ -83,7 +83,7 @@
                                         <a href="javascript:void(0)" onclick="balasKomentar( {{ $row->id }}, '{{ $row->commant }}')">Balas</a>
                                     </blockquote>
                                     @foreach ($row->child as $val) 
-                                        <div class="child-commant">
+                                        <div class="child-commant" style="padding-left: 50px;">
                                             <blockquote>
                                                 <h6>{{ $val->username }}</h6>
                                                 <hr>

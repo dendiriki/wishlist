@@ -46,11 +46,11 @@ class TukarController extends Controller
         
 
 
-        // dd($nominal->variable);
+        // dd($nominal->point);
 
         $jumlah_point = $point->jumlah_point;
 
-        if ($jumlah_point >= 50) {
+        if ($jumlah_point >= $nominal->point) {
 
             if (empty($point)) {
                 return redirect()->route('tukar');
@@ -126,7 +126,7 @@ class TukarController extends Controller
 
         $jumlah_point = $point->jumlah_point;
 
-        if ($jumlah_point >= 100) {
+        if ($jumlah_point >=  $nominal->point) {
 
             if (empty($point)) {
                 return redirect()->route('tukar');
@@ -202,7 +202,7 @@ class TukarController extends Controller
 
         $jumlah_point = $point->jumlah_point;
 
-        if ($jumlah_point >= 150) {
+        if ($jumlah_point >=  $nominal->point) {
 
             if (empty($point)) {
                 return redirect()->route('tukar');

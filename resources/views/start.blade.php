@@ -7,6 +7,7 @@
                 <li data-target="#carouselId" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselId" data-slide-to="1"></li>
                 <li data-target="#carouselId" data-slide-to="2"></li>
+                <li data-target="#carouselId" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                 @foreach ($art as $a)
@@ -22,7 +23,7 @@
                                         <a href="{{ route('artikel-wishlist', $a->id) }}"
                                             style="text-decoration: none; color: black">
                                             <h4>{{ $a->judul }}</h4>
-                                            <p>{!! substr(strip_tags($a->isi), 0, 50) !!}..</p>
+                                            <p>{!! substr(strip_tags($a->isi), 0, 400) !!}..</p>
                                         </a>
                                     </div>
                                 </div>
@@ -61,7 +62,7 @@
                                 <small
                                     class="badge rounded-pill px-4 py-2 mb-3 bg-pink text-white">{{ $artk->artikelsubkategori[0]->subkategori->subkategories }}</small>
                                 <h5 class="card-title">{{ $artk->judul }}</h5>
-                                <p>{!! substr(strip_tags($artk->isi), 0, 50) !!}..</p>
+                                <p>{!! substr(strip_tags($artk->isi), 0, 200) !!}..</p>
                             </div>
                         </div>
                     </a>
@@ -69,8 +70,9 @@
             @endforeach
         </div>
         <div class="row mt-3 justify-content-center">
-            <a href="#"><img class="clickable" src="{{ asset('assets/icons/prev-pink.png') }}" width="50" /></a>
-            <a href="#"><img class="clickable" src="{{ asset('assets/icons/next-pink.png') }}" width="50" /></a>
+        {{ $artikel->links() }}
+            <!-- <a href="{{ $artikel->links() }}"><img class="clickable" src="{{ asset('assets/icons/prev-pink.png') }}" width="50" /></a>
+            <a href="{{ route('artikel-wishlist', $artk->id) }}"><img class="clickable" src="{{ asset('assets/icons/next-pink.png') }}" width="50" /></a> -->
         </div>
     </div>
     {{-- <div style="width:100%; background-image: url('{{ asset('assets/backgrounds/Frame 3.png') }}')"> --}}
@@ -100,8 +102,7 @@
             </div>
         </div>
         <div class="row mt-3 justify-content-center">
-            <a href="#"><img src="{{ asset('assets/icons/prev-yellow.png') }}" width="50" /></a>
-            <a href="#"><img src="{{ asset('assets/icons/next-yellow.png') }}" width="50" /></a>
+        {{ $youtube->links() }}
         </div>
     </div>
     {{-- </div> --}}

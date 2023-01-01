@@ -11,6 +11,7 @@ use App\Models\Point;
 use App\Models\Subkategori;
 use App\Models\Riwayatpoin;
 use App\Models\Notifikasi;
+use App\Models\Nominal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

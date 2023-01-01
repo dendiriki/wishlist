@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Models\Artikelstatus;
 use App\Models\Artikelsubkategori;
+use App\Models\Leaderboard;
 use App\Models\Point;
 use App\Models\Status;
 use App\Models\Subkategori;
@@ -173,6 +174,7 @@ class RedakturController extends Controller
 
 
         $id_point = $user->name;
+        $user_id = $user->id;
 
 
 
@@ -206,8 +208,34 @@ class RedakturController extends Controller
         // $riwayat->assignRole('jurnalis');
         $riwayat->save();
 
+         
+        $leaderboard = Leaderboard::with(['user'])
+            ->where('user_id', $user_id)->first();
+       
+        $leaderboard->rank += 1;
 
+       
+        
+      
+        if ($leaderboard->rank == 5) {
 
+            $leaderboard->badge ='SENIOR WRITER';
+
+        }if ($leaderboard->rank == 10){
+
+            $leaderboard->badge ='PROFESSIONAL WRITER';
+
+        }if($leaderboard->rank >= 10 ){
+
+            $leaderboard->badge ='LEGEND WRITER';
+
+        }else{
+
+             $leaderboard->badge ='JUNIOR WRITER';
+
+        }
+
+        $leaderboard->save();
 
 
 

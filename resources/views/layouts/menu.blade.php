@@ -40,6 +40,9 @@
 
 @role('jurnalis')
 <li class="nav-item">
+    <a class="nav-link" href="{{ route('leaderboard') }}">{{ __('Leaderboard') }}</a>
+</li>
+<li class="nav-item">
     <a class="nav-link" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
 </li>
 <li class="nav-item">

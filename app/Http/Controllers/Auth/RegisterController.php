@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Point;
+use App\Models\Leaderboard;
 use App\Models\Riwayatpoin;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -99,6 +100,13 @@ class RegisterController extends Controller
         $poin->nama_user = $data['name'];
         $poin->assignRole('jurnalis');
         $poin->save();
+
+        $leaderboard = new Leaderboard();
+        $leaderboard->user_id = $user->id;
+        $leaderboard->rank = 0;
+        $leaderboard->badge = 'NEW MEMBERS';
+        $leaderboard->save();
+
 
         $riwayat = new Riwayatpoin();
 

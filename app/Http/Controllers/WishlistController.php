@@ -70,10 +70,10 @@ class WishlistController extends Controller
 
         return view('start', [
             'art' => $art->get(),
-            'artikel' => $artikel->get(),
+            'artikel' => $artikel->paginate(8),
             'subkategori' => $subkategori,
             'users' => $users,
-            'youtube' => $video->get(),
+            'youtube' => $video->paginate(6),
         ]);
 
     }
@@ -91,6 +91,17 @@ class WishlistController extends Controller
         // $artikel = Artikel::with(['commants', 'commants.child'])->where('id', $id)->first();
         // return view('post', compact('artikel'));
     }
+    
+
+    // public function halaman_subartikel($id)
+    // {
+    //     $artikel = Artikel::with(['commants', 'commants.child'])->find($id);
+
+    //     return view('post', compact('artikel'));
+
+    //     // $artikel = Artikel::with(['commants', 'commants.child'])->where('id', $id)->first();
+    //     // return view('post', compact('artikel'));
+    // }
 
     public function commant(Request $request)
     {

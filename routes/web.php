@@ -19,11 +19,13 @@ use Spatie\Permission\Models\Role;
 //route utama
 Route::get('/', [App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist');
 Route::get('/artikel/{id}', [App\Http\Controllers\WishlistController::class, 'halaman_artikel'])->name('artikel-wishlist');
+// Route::get('/artikel/{id}', [App\Http\Controllers\WishlistController::class, 'halaman_subartikel'])->name('subartikel-wishlist');
 Route::post('/commant', [App\Http\Controllers\WishlistController::class, 'commant'])->name('commant');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/leaderboard', [App\Http\Controllers\LeaderboardController::class, 'index'])->name('leaderboard');
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

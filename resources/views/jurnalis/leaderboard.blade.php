@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($leaderboard as $a)
+            @foreach ( $leaderboard as $a)
                 <tr>
                     <td>{{ $a->rank}}</td>
                     <td>{{ $a->user_id }}</td>
@@ -30,3 +30,4 @@
 </div>
 
 @endsection
+

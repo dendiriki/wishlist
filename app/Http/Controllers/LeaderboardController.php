@@ -8,7 +8,7 @@ use App\Http\Requests\StoreLeaderboardRequest;
 use App\Http\Requests\UpdateLeaderboardRequest;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class LeaderboardController extends Controller
 {
     /**
@@ -16,25 +16,34 @@ class LeaderboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Leaderboard $leaderboard)
-    {   
-         
-        return view('jurnalis.leaderboard', [
-          
-            'leaderboard' => $leaderboard->orderBy('rank','DESC')->get(),
-          
-        //   'user_id' => $leaderboard->user_id,
-        //   'rank' => $leaderboard->rank,
-        //   'badge' => $leaderboard->badge
-          
-        ]);
+    public function index()
+    {
+        // $query = DB::table('leaderboards')->orderBy('rank','desc')->;
+        // $leaderboard = Leaderboard::all()->orderBy('rank','DESC')->get();;
+        // return view('jurnalis.leaderboard',  ['leaderboard' => $leaderboard]);
 
-    
+        $leaderboard = Leaderboard::join('users', 'leaderboards.user_id', '=', 'users.id')
+        // ->select('subcategories.*', 'categories.name AS cname')
+        ->orderBy('rank', 'desc')
+        ->get();
+        // $leaderboard = Leaderboard::all()->orderBy('rank','desc')->get();
+        return view('jurnalis.leaderboard',  ['leaderboard' => $leaderboard]);
+        // return view('jurnalis.leaderboard', compact('query'));
+
+         
+
+        //     'leaderboard' => $leaderboard->get()
+        // //   'user_id' => $leaderboard->user_id,
+        // //   'rank' => $leaderboard->rank,
+        // //   'badge' => $leaderboard->badge
+
+
+
     }
 
 
     /**
- 
+
      *
      * @return \Illuminate\Http\Response
      */

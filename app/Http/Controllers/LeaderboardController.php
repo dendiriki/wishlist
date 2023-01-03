@@ -18,10 +18,11 @@ class LeaderboardController extends Controller
      */
     public function index(Leaderboard $leaderboard)
     {   
-        
+         
         return view('jurnalis.leaderboard', [
           
-            'leaderboard' => $leaderboard->get()
+            'leaderboard' => $leaderboard->orderBy('rank','DESC')->get(),
+          
         //   'user_id' => $leaderboard->user_id,
         //   'rank' => $leaderboard->rank,
         //   'badge' => $leaderboard->badge

@@ -217,19 +217,15 @@ class RedakturController extends Controller
        
         
       
-        if ($leaderboard->rank == 5) {
+        if ($leaderboard->rank >= 3 && $leaderboard->rank <=5) {
 
             $leaderboard->badge ='SENIOR WRITER';
 
-        }if ($leaderboard->rank == 10){
+        }if ($leaderboard->rank >= 6 && $leaderboard->rank <= 100) {
 
             $leaderboard->badge ='PROFESSIONAL WRITER';
 
-        }if($leaderboard->rank >= 10 ){
-
-            $leaderboard->badge ='LEGEND WRITER';
-
-        }else{
+        }if( $leaderboard->rank >= 1 && $leaderboard->rank <= 2){
 
              $leaderboard->badge ='JUNIOR WRITER';
 

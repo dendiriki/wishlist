@@ -16,7 +16,7 @@ class CreateLeaderboardsTable extends Migration
         Schema::create('leaderboards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->int('rank')->nullable();
+            $table->string('rank')->nullable();
             $table->string('badge')->nullable();
             $table->timestamps();
         });
